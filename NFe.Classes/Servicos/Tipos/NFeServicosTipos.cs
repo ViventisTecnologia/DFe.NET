@@ -551,6 +551,20 @@ namespace NFe.Classes.Servicos.Tipos
         CancelamentoComprovanteEntregaCTe = 610131,
 
         /// <summary>
+        /// 610600 – Cancelamento de Comprovante de entrega CTe
+        /// </summary>
+        [Description("CTe Autorizado")]
+        [XmlEnum("610600")]
+        CTeAutorizado = 610600,
+
+        /// <summary>
+        /// 610601 – Cancelamento de Comprovante de entrega CTe
+        /// </summary>
+        [Description("CTe Cancelado")]
+        [XmlEnum("610601")]
+        CTeCancelado = 610601,
+
+        /// <summary>
         /// 790700 – Averbação para Exportação
         /// </summary>
         [Description("Averbação para Exportação")]
