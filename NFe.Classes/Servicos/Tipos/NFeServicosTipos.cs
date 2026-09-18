@@ -277,38 +277,86 @@ namespace NFe.Classes.Servicos.Tipos
 
     /// <summary>
     ///     Código do Tipo do Evento.
-    ///     110001 -  Cancelamento de Evento
-    ///     110110 - Carta de Correção
-    ///     110140 - EPEC
-    ///     110111 - Cancelamento
+    ///     Eventos Registrados pelo Emitente:
+    ///     110001 - Cancelamento de Evento
+    ///     110110 - Carta de Correção Eletrônica
+    ///     110111 - Cancelamento pelo Emitente
     ///     110112 - Cancelamento por substituição
     ///     110130 - Comprovante de Entrega da NF-e
     ///     110131 - Cancelamento Comprovante de Entrega da NF-e
-    ///     110150 - Ator Interessado na NF-e
+    ///     110140 - EPEC – Emissão em Contingência
+    ///     110150 - Ator Interessado na NF-e – Transportador
     ///     110192 - Insucesso na Entrega da NF-e
     ///     110193 - Cancelamento Insucesso na Entrega da NF-e
     ///     110750 - Conciliação Financeira da NF-e
     ///     110751 - Cancelamento Conciliação Financeira da NF-e
+    ///     111500 - Pedido de Prorrogação 1º prazo
+    ///     111501 - Pedido de Prorrogação 2º prazo
+    ///     111502 - Cancelamento de Pedido de Prorrogação 1º prazo
+    ///     111503 - Cancelamento de Pedido de Prorrogação 2º prazo
     ///     112110 - Informação de efetivo pagamento integral para liberar crédito presumido do adquirente
     ///     112120 - Importação em ALC/ZFM não convertida em isenção
+    ///     112130 - Perecimento, perda, roubo ou furto durante o transporte contratado pelo fornecedor
     ///     112140 - Fornecimento não realizado com pagamento antecipado
     ///     112150 - Atualização da Data de Previsão de Entrega
-    ///     210200 – Confirmação da Operação
-    ///     210210 – Ciência da Emissão
-    ///     210220 – Desconhecimento da Operação
+    ///     Eventos Registrados pelo Destinatário:
+    ///     210200 – Confirmação de Operação pelo Destinatário
+    ///     210210 – Ciência da Operação pelo Destinatário (ou Ciência da Emissão)
+    ///     210220 – Desconhecimento da Operação pelo Destinatário
     ///     210240 – Operação não Realizada
     ///     211110 - Solicitação de Apropriação de crédito presumido
     ///     211120 - Destinação de item para consumo pessoal
     ///     211124 - Perecimento, perda, roubo ou furto durante o transporte contratado pelo adquirente
-    ///     112130 - Perecimento, perda, roubo ou furto durante o transporte contratado pelo fornecedor
     ///     211128 - Aceite de débito na apuração por emissão de nota de crédito
-    ///     211130 -  Imobilização de Item
-    ///     211140 -  Solicitação de Apropriação de Crédito de Combustível
-    ///     211150 -  Solicitação de Apropriação de Crédito para bens e serviços que dependem de atividade do adquirente
-    ///     212110 -  Manifestação sobre Pedido de Transferência de Crédito de IBS em Operações de Sucessão
-    ///     212120 -  Manifestação sobre Pedido de Transferência de Crédito de CBS em Operações de Sucessão
-    ///     412120 -  Manifestação do Fisco sobre Pedido de Transferência de Crédito de IBS em Operações de Sucessão
-    ///     412130 -  Manifestação do Fisco sobre Pedido de Transferência de Crédito de CBS em Operações de Sucessão
+    ///     211130 - Imobilização de Item
+    ///     211140 - Solicitação de Apropriação de Crédito de Combustível
+    ///     211150 - Solicitação de Apropriação de Crédito para bens e serviços que dependem de atividade do adquirente
+    ///     212110 - Manifestação sobre Pedido de Transferência de Crédito de IBS em Operações de Sucessão
+    ///     212120 - Manifestação sobre Pedido de Transferência de Crédito de CBS em Operações de Sucessão
+    ///     Eventos Registrados pelo Fisco:
+    ///     400100 - Alerta Fisco Emitente: Simulação Operação Emitente
+    ///     400101 - Cancelamento Evento Fisco 400100
+    ///     400104 - Alerta Fisco Emitente: Simulação Operação Emitente Inex.
+    ///     400105 - Cancelamento Evento Fisco 400104
+    ///     400120 - Alerta Fisco Emitente: Mercadoria Sem Origem Comprovada
+    ///     400121 - Cancelamento Evento Fisco 400120
+    ///     400200 - Documento Fiscal Inidôneo
+    ///     400201 - Cancelamento Evento Fisco 400200
+    ///     400300 - Visto Eletrônico do Fisco
+    ///     400301 - Cancelamento Evento Fisco 400300
+    ///     411500 - Evento Fisco Resposta ao Pedido de Prorrogação 1º prazo
+    ///     411501 - Evento Fisco Resposta ao Pedido de Prorrogação 2º prazo
+    ///     411502 - Evento Fisco Resp. ao Cancelamento de Prorrogação 1º prazo
+    ///     411503 - Evento Fisco Resp. ao Cancelamento de Prorrogação 2º prazo
+    ///     412120 - Manifestação do Fisco sobre Pedido de Transferência de Crédito de IBS em Operações de Sucessão
+    ///     412130 - Manifestação do Fisco sobre Pedido de Transferência de Crédito de CBS em Operações de Sucessão
+    ///     500100 - Alerta Fisco Emitente: Simulação Operação Destinatário
+    ///     500101 - Cancelamento Evento Fisco 500100
+    ///     500104 - Alerta Fisco Emitente: Simulação Operação Destinatário Inex.
+    ///     500105 - Cancelamento Evento Fisco 500104
+    ///     Eventos Propagados Automaticamente:
+    ///     410300 - NF-e Referenciada
+    ///     610130 – Comprovante de entrega CT-e
+    ///     610131 – Cancelamento de Comprovante de entrega CT-e
+    ///     610500 - Registro Passagem NF-e
+    ///     610501 - Cancelamento Registro Passagem NF-e
+    ///     610510 - Registro de Passagem MDF-e
+    ///     610511 - Cancelamento Registro de Passagem MDF-e
+    ///     610514 - Registro de Passagem MDF-e com CT-e
+    ///     610515 - Cancelamento Registro de Passagem MDF-e com CT-e
+    ///     610550 - Registro Passagem NF-e BRId (evento eliminado, substituído pelo 610552)
+    ///     610552 - Registro de Passagem Automático MDF-e
+    ///     610554 - Cancelamento Registro de Passagem Automático MDF-e com CT-e
+    ///     610600 – CT-e Autorizado
+    ///     610601 – CT-e Cancelado
+    ///     610610 - MDF-e Autorizado
+    ///     610611 - MDF-e Cancelado
+    ///     610614 - MDF-e Autorizado com CT-e
+    ///     610615 - Cancelamento do MDF-e Autorizado com CT-e
+    ///     790700 – Averbação de Exportação
+    ///     Eventos Registrados por Outros Órgãos:
+    ///     990900 - Vistoria SUFRAMA
+    ///     990910 - Internalização SUFRAMA
     /// </summary>
     public enum NFeTipoEvento
     {
@@ -353,6 +401,34 @@ namespace NFe.Classes.Servicos.Tipos
         [Description("Ator interessado na NF-e")]
         [XmlEnum("110150")]
         TeNfeAtorInteressadoNFe = 110150,
+
+        /// <summary>
+        /// 111500 - Pedido de Prorrogação 1º prazo
+        /// </summary>
+        [Description("Pedido de Prorrogação 1º prazo")]
+        [XmlEnum("111500")]
+        TeNfePedidoProrrogacao1Prazo = 111500,
+
+        /// <summary>
+        /// 111501 - Pedido de Prorrogação 2º prazo
+        /// </summary>
+        [Description("Pedido de Prorrogação 2º prazo")]
+        [XmlEnum("111501")]
+        TeNfePedidoProrrogacao2Prazo = 111501,
+
+        /// <summary>
+        /// 111502 - Cancelamento de Pedido de Prorrogação 1º prazo
+        /// </summary>
+        [Description("Cancelamento de Pedido de Prorrogação 1º prazo")]
+        [XmlEnum("111502")]
+        TeNfeCancelamentoPedidoProrrogacao1Prazo = 111502,
+
+        /// <summary>
+        /// 111503 - Cancelamento de Pedido de Prorrogação 2º prazo
+        /// </summary>
+        [Description("Cancelamento de Pedido de Prorrogação 2º prazo")]
+        [XmlEnum("111503")]
+        TeNfeCancelamentoPedidoProrrogacao2Prazo = 111503,
         
         /// <summary>
         /// 110192 - Insucesso na Entrega da NF-e
@@ -507,6 +583,139 @@ namespace NFe.Classes.Servicos.Tipos
         [Description("Manifestação do Fisco sobre Pedido de Transferência de Crédito de CBS em Operação de Sucessão")]
         [XmlEnum("412130")]
         TeNfeManifestacaoDoFiscoSobrePedidoDeTransferenciaDeCreditoDeCbsEmOperacoesDeSucessao = 412130,
+
+        /// <summary>
+        /// 400100 - Alerta Fisco Emitente: Simulação Operação Emitente
+        /// </summary>
+        [Description("Alerta Fisco Emitente: Simulação Operação Emitente")]
+        [XmlEnum("400100")]
+        TeNfeAlertaFiscoSimulacaoOperacaoEmitente = 400100,
+
+        /// <summary>
+        /// 400101 - Cancelamento Evento Fisco 400100
+        /// </summary>
+        [Description("Cancelamento Evento Fisco 400100")]
+        [XmlEnum("400101")]
+        TeNfeCancelamentoEventoFisco400100 = 400101,
+
+        /// <summary>
+        /// 400104 - Alerta Fisco Emitente: Simulação Operação Emitente Inex.
+        /// </summary>
+        [Description("Alerta Fisco Emitente: Simulação Operação Emitente Inex.")]
+        [XmlEnum("400104")]
+        TeNfeAlertaFiscoSimulacaoOperacaoEmitenteInex = 400104,
+
+        /// <summary>
+        /// 400105 - Cancelamento Evento Fisco 400104
+        /// </summary>
+        [Description("Cancelamento Evento Fisco 400104")]
+        [XmlEnum("400105")]
+        TeNfeCancelamentoEventoFisco400104 = 400105,
+
+        /// <summary>
+        /// 400120 - Alerta Fisco Emitente: Mercadoria Sem Origem Comprovada
+        /// </summary>
+        [Description("Alerta Fisco Emitente: Mercadoria Sem Origem Comprovada")]
+        [XmlEnum("400120")]
+        TeNfeAlertaFiscoMercadoriaSemOrigemComprovada = 400120,
+
+        /// <summary>
+        /// 400121 - Cancelamento Evento Fisco 400120
+        /// </summary>
+        [Description("Cancelamento Evento Fisco 400120")]
+        [XmlEnum("400121")]
+        TeNfeCancelamentoEventoFisco400120 = 400121,
+
+        /// <summary>
+        /// 400200 - Documento Fiscal Inidôneo
+        /// </summary>
+        [Description("Documento Fiscal Inidôneo")]
+        [XmlEnum("400200")]
+        TeNfeDocumentoFiscalInidoneo = 400200,
+
+        /// <summary>
+        /// 400201 - Cancelamento Evento Fisco 400200
+        /// </summary>
+        [Description("Cancelamento Evento Fisco 400200")]
+        [XmlEnum("400201")]
+        TeNfeCancelamentoEventoFisco400200 = 400201,
+
+        /// <summary>
+        /// 400300 - Visto Eletrônico do Fisco
+        /// </summary>
+        [Description("Visto Eletrônico do Fisco")]
+        [XmlEnum("400300")]
+        TeNfeVistoEletronicoDoFisco = 400300,
+
+        /// <summary>
+        /// 400301 - Cancelamento Evento Fisco 400300
+        /// </summary>
+        [Description("Cancelamento Evento Fisco 400300")]
+        [XmlEnum("400301")]
+        TeNfeCancelamentoEventoFisco400300 = 400301,
+
+        /// <summary>
+        /// 410300 - NF-e Referenciada
+        /// </summary>
+        [Description("NF-e Referenciada")]
+        [XmlEnum("410300")]
+        TeNfeReferenciada = 410300,
+
+        /// <summary>
+        /// 411500 - Evento Fisco Resposta ao Pedido de Prorrogação 1º prazo
+        /// </summary>
+        [Description("Evento Fisco Resposta ao Pedido de Prorrogação 1º prazo")]
+        [XmlEnum("411500")]
+        TeNfeFiscoRespostaPedidoProrrogacao1Prazo = 411500,
+
+        /// <summary>
+        /// 411501 - Evento Fisco Resposta ao Pedido de Prorrogação 2º prazo
+        /// </summary>
+        [Description("Evento Fisco Resposta ao Pedido de Prorrogação 2º prazo")]
+        [XmlEnum("411501")]
+        TeNfeFiscoRespostaPedidoProrrogacao2Prazo = 411501,
+
+        /// <summary>
+        /// 411502 - Evento Fisco Resp. ao Cancelamento de Prorrogação 1º prazo
+        /// </summary>
+        [Description("Evento Fisco Resp. ao Cancelamento de Prorrogação 1º prazo")]
+        [XmlEnum("411502")]
+        TeNfeFiscoRespCancelamentoProrrogacao1Prazo = 411502,
+
+        /// <summary>
+        /// 411503 - Evento Fisco Resp. ao Cancelamento de Prorrogação 2º prazo
+        /// </summary>
+        [Description("Evento Fisco Resp. ao Cancelamento de Prorrogação 2º prazo")]
+        [XmlEnum("411503")]
+        TeNfeFiscoRespCancelamentoProrrogacao2Prazo = 411503,
+
+        /// <summary>
+        /// 500100 - Alerta Fisco Emitente: Simulação Operação Destinatário
+        /// </summary>
+        [Description("Alerta Fisco Emitente: Simulação Operação Destinatário")]
+        [XmlEnum("500100")]
+        TeNfeAlertaFiscoSimulacaoOperacaoDestinatario = 500100,
+
+        /// <summary>
+        /// 500101 - Cancelamento Evento Fisco 500100
+        /// </summary>
+        [Description("Cancelamento Evento Fisco 500100")]
+        [XmlEnum("500101")]
+        TeNfeCancelamentoEventoFisco500100 = 500101,
+
+        /// <summary>
+        /// 500104 - Alerta Fisco Emitente: Simulação Operação Destinatário Inex.
+        /// </summary>
+        [Description("Alerta Fisco Emitente: Simulação Operação Destinatário Inex.")]
+        [XmlEnum("500104")]
+        TeNfeAlertaFiscoSimulacaoOperacaoDestinatarioInex = 500104,
+
+        /// <summary>
+        /// 500105 - Cancelamento Evento Fisco 500104
+        /// </summary>
+        [Description("Cancelamento Evento Fisco 500104")]
+        [XmlEnum("500105")]
+        TeNfeCancelamentoEventoFisco500104 = 500105,
         
         /// <summary>
         /// 210200 – Confirmação da Operação
@@ -551,25 +760,130 @@ namespace NFe.Classes.Servicos.Tipos
         CancelamentoComprovanteEntregaCTe = 610131,
 
         /// <summary>
-        /// 610600 – Cancelamento de Comprovante de entrega CTe
+        /// 610500 – Registro Passagem NF-e
+        /// </summary>
+        [Description("Registro Passagem NF-e")]
+        [XmlEnum("610500")]
+        TeNfeRegistroPassagemNFe = 610500,
+
+        /// <summary>
+        /// 610501 – Cancelamento Registro Passagem NF-e
+        /// </summary>
+        [Description("Cancelamento Registro Passagem NF-e")]
+        [XmlEnum("610501")]
+        TeNfeCancelamentoRegistroPassagemNFe = 610501,
+
+        /// <summary>
+        /// 610510 – Registro de Passagem MDF-e
+        /// </summary>
+        [Description("Registro de Passagem MDF-e")]
+        [XmlEnum("610510")]
+        RegistroPassagemMDFe = 610510,
+
+        /// <summary>
+        /// 610511 – Cancelamento Registro de Passagem MDF-e
+        /// </summary>
+        [Description("Cancelamento Registro de Passagem MDF-e")]
+        [XmlEnum("610511")]
+        CancelamentoRegistroPassagemMDFe = 610511,
+
+        /// <summary>
+        /// 610514 – Registro de Passagem MDF-e com CT-e
+        /// </summary>
+        [Description("Registro de Passagem MDF-e com CT-e")]
+        [XmlEnum("610514")]
+        RegistroPassagemMDFeComCTe = 610514,
+
+        /// <summary>
+        /// 610515 – Cancelamento Registro de Passagem MDF-e com CT-e
+        /// </summary>
+        [Description("Cancelamento Registro de Passagem MDF-e com CT-e")]
+        [XmlEnum("610515")]
+        CancelamentoRegistroPassagemMDFeComCTe = 610515,
+
+        /// <summary>
+        /// 610550 – Registro Passagem NF-e BRId (evento eliminado, substituído pelo 610552)
+        /// </summary>
+        [Description("Registro Passagem NF-e BRId")]
+        [XmlEnum("610550")]
+        TeNfeRegistroPassagemNFeBRId = 610550,
+
+        /// <summary>
+        /// 610552 – Registro de Passagem Automático MDF-e
+        /// </summary>
+        [Description("Registro de Passagem Automático MDF-e")]
+        [XmlEnum("610552")]
+        RegistroPassagemAutomaticoMDFe = 610552,
+
+        /// <summary>
+        /// 610554 – Cancelamento Registro de Passagem Automático MDF-e com CT-e
+        /// </summary>
+        [Description("Cancelamento Registro de Passagem Automático MDF-e com CT-e")]
+        [XmlEnum("610554")]
+        CancelamentoRegistroPassagemAutomaticoMDFeComCTe = 610554,
+
+        /// <summary>
+        /// 610600 – CT-e Autorizado
         /// </summary>
         [Description("CTe Autorizado")]
         [XmlEnum("610600")]
         CTeAutorizado = 610600,
 
         /// <summary>
-        /// 610601 – Cancelamento de Comprovante de entrega CTe
+        /// 610601 – CT-e Cancelado
         /// </summary>
         [Description("CTe Cancelado")]
         [XmlEnum("610601")]
         CTeCancelado = 610601,
 
         /// <summary>
+        /// 610610 – MDF-e Autorizado
+        /// </summary>
+        [Description("MDF-e Autorizado")]
+        [XmlEnum("610610")]
+        MDFeAutorizado = 610610,
+
+        /// <summary>
+        /// 610611 – MDF-e Cancelado
+        /// </summary>
+        [Description("MDF-e Cancelado")]
+        [XmlEnum("610611")]
+        MDFeCancelado = 610611,
+
+        /// <summary>
+        /// 610614 – MDF-e Autorizado com CT-e
+        /// </summary>
+        [Description("MDF-e Autorizado com CT-e")]
+        [XmlEnum("610614")]
+        MDFeAutorizadoComCTe = 610614,
+
+        /// <summary>
+        /// 610615 – Cancelamento do MDF-e Autorizado com CT-e
+        /// </summary>
+        [Description("Cancelamento do MDF-e Autorizado com CT-e")]
+        [XmlEnum("610615")]
+        CancelamentoMDFeAutorizadoComCTe = 610615,
+
+        /// <summary>
         /// 790700 – Averbação para Exportação
         /// </summary>
         [Description("Averbação para Exportação")]
         [XmlEnum("790700")]
-        TeMdAverbacaoparaExportacao = 790700
+        TeMdAverbacaoparaExportacao = 790700,
+
+        /// <summary>
+        /// 990900 – Vistoria SUFRAMA
+        /// </summary>
+        [Description("Vistoria SUFRAMA")]
+        [XmlEnum("990900")]
+        TeNfeVistoriaSuframa = 990900,
+
+        /// <summary>
+        /// 990910 – Internalização SUFRAMA
+        /// </summary>
+        [Description("Internalização SUFRAMA")]
+        [XmlEnum("990910")]
+        TeNfeInternalizacaoSuframa = 990910
     }
 
     /// <summary>
